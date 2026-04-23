@@ -1,101 +1,54 @@
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+import FadeInEffect from "@/components/FadeInEffect";
+import TechMatrix from "@/components/TechMatrix";
+import SolutionShowcase from "@/components/SolutionShowcase";
+import ContactForm from "@/components/ContactForm";
+import ClientAboutPage from "@/app/about/ClientAboutPage";
+
+const partnersData = [
+  { name: "LG", src: "/static/cooperater/LG.svg" },
+  { name: "BYD 比亚迪", src: "/static/cooperater/BYD.svg" },
+  { name: "DELTA 台达", src: "/static/cooperater/Delta.svg" },
+  { name: "FINEST", src: "/static/cooperater/FINEST.svg" },
+  { name: "Haier 海尔", src: "/static/cooperater/Haier.svg" },
+  { name: "HUAWEI 华为", src: "/static/cooperater/huawei.svg" },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen bg-background text-foreground selection:bg-cyanGlow/30 selection:text-white">
+      <FadeInEffect>
+        <HeroSection />
+      </FadeInEffect>
+      <FadeInEffect delay={0.2}>
+        <TechMatrix />
+      </FadeInEffect>
+      <FadeInEffect delay={0.2}>
+        <SolutionShowcase />
+      </FadeInEffect>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* 合作伙伴展示模块 */}
+      <FadeInEffect delay={0.6}>
+        <div className="relative overflow-hidden w-full mt-32 mb-16 py-32 bg-gradient-to-r from-slate-50 to-slate-200 shadow-inner">
+          {/* 背景动画组件 */}
+          <ClientAboutPage partnersData={partnersData} />
+          
+          <div className="relative z-10 px-4 md:px-8 max-w-7xl mx-auto flex items-center">
+            <div className="max-w-xl backdrop-blur-sm bg-white/70 p-10 md:p-14 rounded-3xl shadow-xl border border-white/80">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-8 tracking-tight">合作伙伴</h2>
+              <div className="w-24 h-1.5 bg-blue-600 rounded-full mb-10 shadow-sm"></div>
+              <p className="text-slate-700 text-lg md:text-xl leading-loose font-medium">
+                携手行业标杆，共创智造未来。天军科技凭借领先的视觉检测与AI行为分析技术，已与
+                <strong className="text-blue-700 px-1 font-bold">华为、海尔、比亚迪、LG、OPPO、拓普</strong>
+                等多家全球知名企业达成深度合作。我们的解决方案成功落地于各类复杂工业场景，持续为客户产品的质量提升与产线智能化升级保驾护航。
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </FadeInEffect>
+      <FadeInEffect delay={0.2}>
+        <ContactForm />
+      </FadeInEffect>
+    </main>
   );
 }

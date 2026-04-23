@@ -6,14 +6,33 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
+      animation: {
+        'marquee-infinite': 'marquee 25s linear infinite',
+        'marquee-infinite-reverse': 'marquee-reverse 25s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-25%)' },
+        },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-25%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#ffffff",
+        foreground: "#000000",
+        geekBlue: "#2563EB",
+        cyanGlow: "#06B6D4",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwindcss-animate")
+  ]
 };
 export default config;
