@@ -5,7 +5,7 @@ export default function SolutionsPage() {
   return (
     <main className="min-h-screen bg-background text-foreground pt-20">
       <FadeInEffect>
-        <SolutionShowcase hideImageTab={true} hideViewMore={true} />
+        <SolutionShowcase hideViewMore={true} />
       </FadeInEffect>
     </main>
   );

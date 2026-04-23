@@ -10,7 +10,7 @@ const ContactForm = () => {
   const [form] = Form.useForm();
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: { name: string; phone: string; company: string; needs: string }) => {
     setStatus('loading');
     
     try {

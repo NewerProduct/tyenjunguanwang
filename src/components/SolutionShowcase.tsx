@@ -40,8 +40,8 @@ const videos = [
   { id: 8, src: vid9, title: 'AI行为分析 07' },
 ];
 
-const SolutionShowcase = ({ hideImageTab = true, hideViewMore = false }: { hideImageTab?: boolean, hideViewMore?: boolean }) => {
-  const [activeTab, setActiveTab] = useState<'image' | 'video'>('video');
+const SolutionShowcase = ({ hideViewMore = false }: { hideViewMore?: boolean }) => {
+  const [activeTab] = useState<'image' | 'video'>('video');
   const [hoveredIndex, setHoveredIndex] = useState<number>(0);
   const [startIndex, setStartIndex] = useState<number>(0);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
